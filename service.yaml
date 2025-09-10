@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-app-service
+  namespace: abdullah
+spec:
+  
+  selector:
+    app: userprofile   # ✅ must match pod labels
+  ports:
+    - port: 80          # Service port (ClusterIP)
+      targetPort: 3130  # Pod's container port
+        # External port on worker node
+

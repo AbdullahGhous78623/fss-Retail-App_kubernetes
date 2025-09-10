@@ -1,12 +1,13 @@
-# Dockerfile example
-FROM node:18
+FROM node
 
-WORKDIR /Capsule
+WORKDIR /app
 
 COPY package*.json ./
+
 RUN npm install
 
 COPY . .
 
-EXPOSE 3130  
-CMD ["npm", "start"]
+EXPOSE 3130
+
+CMD ["node","server.js"]
