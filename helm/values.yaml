@@ -32,25 +32,25 @@ mongoService:
   targetPort: 27017
   protocol: "TCP"
 
-# mongoPVC:
-#   name: "abdullah-pvc"
-#   namespace: "abdullah"
-#   accessMode: "ReadWriteOnce"
-#   storage: "1Gi"
-#   storageClassName: "abdullah-sc"
+mongoPVC:
+  name: "abdullah-pvc"
+  namespace: "abdullah"
+  accessMode: "ReadWriteOnce"
+  storage: "1Gi"
+  storageClassName: "abdullah-sc"
 
 
-# mongoStorageClass:
-#   name: "abdullah-sc"
-#   provisioner: "ebs.csi.aws.com"
-#   reclaimPolicy: "Delete"
-#   volumeBindingMode: "WaitForFirstConsumer"
-#   type: "gp2"
+mongoStorageClass:
+  name: "abdullah-sc"
+  provisioner: "ebs.csi.aws.com"
+  reclaimPolicy: "Delete"
+  volumeBindingMode: "WaitForFirstConsumer"
+  type: "gp2"
 
 nodeAppService:
   name: "node-app-service"
   namespace: "abdullah"
-  type: "LoadBalancer"
+  type: "ClusterIP"
   selectorApp: "userprofile"
   port: 80
   targetPort: 3130
@@ -66,15 +66,15 @@ nodeAppDeployment:
   configMapName: "abdullah-configmap"
   secretName: "abdullah-secret"
 
-# nodeAppIngress:
-#   name: "abdullah-ingress"
-#   namespace: "abdullah"
-#   ingressClassName: "nginx"
-#   serviceName: "node-app-service"
-#   servicePort: 80
-#   path: "/"
-#   pathType: "Prefix"
-#   rewriteTarget: "/"
+nodeAppIngress:
+  name: "abdullah-ingress"
+  namespace: "abdullah"
+  ingressClassName: "nginx"
+  serviceName: "node-app-service"
+  servicePort: 80
+  path: "/"
+  pathType: "Prefix"
+  rewriteTarget: "/"
 
 
 
