@@ -14,7 +14,7 @@ services:
       - retail-network
 
   mongo:
-    image: mongo:latest
+    image: mongo:7.0
     container_name: mongo-db
     ports:
       - "27017:27017"
