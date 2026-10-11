@@ -6,8 +6,7 @@ services:
     container_name: retail-app
     ports:
       - "3130:3130"
-    env_file:
-      - .env                # Injects all variables from .env file automatically
+                 
     depends_on:
       - mongo
     networks:
@@ -18,13 +17,11 @@ services:
     container_name: mongo-db
     ports:
       - "27017:27017"
-    volumes:
-      - ./ mongo-data:/data/db
+    
     networks:
       - retail-network
 
-volumes:
-  mongo-data:
+
 
 networks:
   retail-network:
