@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   app:
-    image: abdullah78623/retail-apps:v1
+    image: niamat12/fss-retail-app:v1
     container_name: retail-app
     ports:
       - "3130:3130"
