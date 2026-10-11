@@ -1,3 +1,4 @@
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -14,13 +15,12 @@ spec:
         app: userprofile
     spec:
       containers:
-      - name: usernode-js
-        image: abdullah78623/retail-apps:v1
-        ports:
-        - containerPort: 3130
-        envFrom:
-        - configMapRef:
-            name: abdullah-configmap
-        - secretRef:
-            name: abdullah-secret
-
+        - name: retail-app
+          image: niamat12/fss-retail-app:v1
+          ports:
+            - containerPort: 3130
+          envFrom:
+            - configMapRef:
+                name: abdullah-configmap
+            - secretRef:
+                name: abdullah-secret
